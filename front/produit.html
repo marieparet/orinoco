@@ -13,6 +13,10 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Quicksand:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
   <!-- CSS Galerie -->
   <link rel="stylesheet" href="css/style.css" />
 
@@ -54,7 +58,7 @@
 
     <div class="container-fluid">
 
-      <div id="product" class="row justify-content-center text-center jumbotron">
+      <div id="product" class="row jumbotron">
 
         <div class="col-6">
           <span>
@@ -65,8 +69,24 @@
         <div class="col-6">
           <div class="card">
             <div class="card-body">
-              <h2 class="card-title"></h2>
-              <p class="card-text"></p>
+
+              <h2 class="card-title font-weight-bold"></h2>
+              <p class="card-price font-weight-bold"></p>
+              <p class="card-description font-weight-light"></p>
+              <form>
+                <div class="form-group">
+                  <label for="FormControlQuantity" class="mt-2">Quantité</label>
+                  <input id="FormControlQuantity" type="number" min="1" value="1" class="mb-2 w-100" />
+
+                  <label for="FormControlSelect">Choisissez la couleur</label>
+                  <select class="form-control" id="FormControlSelect">
+                  </select>
+
+                </div>
+
+                <button type="button" id="add-to-cart" class="btn btn-secondary btn-block">Ajouter au panier</button>
+              </form>
+
             </div>
           </div>
         </div>
