@@ -65,42 +65,134 @@
         </div>
       </div>
 
-      <div id="pad-bottom" class="row text-center">
+      <div id="empty-cart" class="col-12 text-center d-none">
+        <div class="card border-0">
+          <div class="card-body">
+            <p>Votre panier est vide...</p>
+          </div>
+        </div>
+      </div>
 
-        <div class="col-12">
-          <div class="card">
+      <div class="row text-center">
+
+        <div class="col-4 col-lg-3">
+          <div class="card border-0">
+            <span>
+              <img class="card-img-top" src="" alt="Photo d'ours en peluche">
+            </span>
             <div class="card-body">
-              <h2 class="card-title">Titre du produit</h2>
-              <p class="card-text">Contenu textuel du produit</p>
+              <p class="card-text">product name</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4 col-lg-3">
+          <div class="card border-0">
+            <div class="card-body">
+              <p class="card-text">quantité à incrémenter</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4 col-lg-3">
+          <div class="card border-0">
+            <div class="card-body">
+              <p class="card-text">prix € (updaté selon qtité)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-3">
+          <div class=" card border-0">
+            <div class="card-body">
+              <p class="card-text">supprimer</p>
             </div>
           </div>
         </div>
 
       </div>
 
-      <footer class="fixed-bottom">
-        <div class="container-fluid">
-          <div class="row justify-content-between text-center">
-            <div class="col-6 col-lg-3">
-              <a class="text-dark" href="a-propos.html">À propos</a>
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="card border-0">
+            <div class="card-body">
+              <p class="card-text">Prix total = xxxx €</p>
             </div>
-            <div class="col-6 col-lg-3">
-              <a class="text-dark" href="legal.html">Mentions légales</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="pad-bottom" class="row justify-content-center mt-4">
+        <div class="col-12 text-center">
+          <p>Veuillez remplir le formulaire ci-dessous pour valider votre commande</p>
+        </div>
+
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Nom et Prénom</label>
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Entrez vos nom et prénom">
+                  <small>mettre message valide ou non valide</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                    placeholder="Entrez votre adresse mail">
+                  <small>mettre message valide ou non valide</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Adresse</label>
+                  <input type="text" id="address" address="address" class="form-control"
+                    placeholder="Entrez votre adresse">
+                  <small>mettre message valide ou non valide</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="postal-code">Code Postal</label>
+                  <input type="text" id="postal-code" name="postal-code" class="form-control"
+                    placeholder="Entrez votre ville">
+                  <small>mettre message valide ou non valide</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="city">Ville</label>
+                  <input type="text" id="city" name="city" class="form-control" placeholder="Entrez votre ville">
+                  <small>mettre message valide ou non valide</small>
+                </div>
+
+                <button type="submit" class="btn btn-secondary btn-block">Submit</button>
+              </form>
             </div>
-      </footer>
+          </div>
+        </div>
 
-      <script src="js/config.js"></script>
+        <footer class="fixed-bottom">
+          <div class="container-fluid">
+            <div class="row justify-content-between text-center">
+              <div class="col-6 col-lg-3">
+                <a class="text-dark" href="a-propos.html">À propos</a>
+              </div>
+              <div class="col-6 col-lg-3">
+                <a class="text-dark" href="legal.html">Mentions légales</a>
+              </div>
+        </footer>
 
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        <script src="js/panier.js"></script>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+          integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+          crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+          integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+          crossorigin="anonymous"></script>
 </body>
 
 </html>
