@@ -1,20 +1,6 @@
-//si panier vide : "Votre panier est vide"
-
-//sinon indiquer :
-// - photo du produit, quantité, prix unitaire, prix total
-// - possibilité d'incrémenter la quantité de chaque produit, et updater le prix total en fonction
-// - possibilité de supprimer un produit, et updater le prix total en fonction
-
-//formulaire à remplir pour pouvoir valider la commande
-
-//une fois formulaire validé, renvoyer vers la page confirmation.html
-
-//définition d'une classe Panier
-
 class Cart {
   constructor() {
-    const jsonCart = localStorage.getItem("cart");
-    this.cartContent = JSON.parse(jsonCart) || [];
+    this.retrieveCartContent();
   }
 
   addToCart(product, quantity, color) {
@@ -23,17 +9,86 @@ class Cart {
       quantity: quantity,
       color: color,
     });
-    localStorage.setItem("cart"), JSON.stringify(this.cartContent));
+    this.saveCart();
   }
 
-  removeFromCart(product) {}
+  removeFromCart(index) {
+    this.cartContent.splice(index, 1);
+    this.saveCart();
+  }
+
+  saveCart() {
+    localStorage.setItem("cart", JSON.stringify(this.cartContent));
+  }
+
+  clearCart() {
+    this.cartContent = [];
+    this.saveCart();
+  }
+
+  retrieveCartContent() {
+    const jsonCart = localStorage.getItem("cart");
+    this.cartContent = JSON.parse(jsonCart) || [];
+  }
+
+  totalPrice() {
+    return this.cartContent.reduce(
+      (previousValue, cartItem) => previousValue + cartItem.product.price / 100,
+      0
+    );
+  }
 }
-const cart4 = new Cart();
 
-cart.addToCart({ title: "Ours 1" }, 2, "blue");
+const cart = new Cart();
 
-const CART = [{ id: "XXXX", quantity: 3, color: "couleur" }];
+console.log(cart.totalPrice());
 
-if (CART.length === 0) {
-  document.querySelector("#empty-cart").classList.remove("d-none");
-}
+cart.cartContent.forEach((cartItem) => {
+  let cartItemContainer = document.querySelector(".cart-items-container");
+  console.log(cartItem);
+  cartItemContainer.innerHTML += `
+  <div class="cart-item row justify-content-center text-center align-items-center border rounded mx-2 mb-3 px-2 py-3">
+    <div class="col-4 col-lg-3">
+      <div class="card border-0 m-1">
+        <span>
+          <img class="card-img-top" src="${
+            cartItem.product.imageUrl
+          }" alt="Photo d'ours en peluche">
+        </span>
+        <div class="card-body p-0">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 col-lg-3">
+      <div class="card border-0 m-1">
+        <div class="card-body p-0">
+          <p class="card-text mb-0">${cartItem.product.name}</p>
+          <p class="card-text">(${cartItem.color})</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 col-lg-2">
+      <label for="FormControlQuantity" class="mb-2">Quantité</label>
+      <input id="FormControlQuantity" type="number" min="1" value="${
+        cartItem.quantity
+      }" class="input-quantity text-dark pl-2 ml-1 w-50" />
+    </div>
+
+    <div class="col-4 col-lg-2">
+      <div class="price">
+        <p class="mb-2 product-price">Prix : ${
+          cartItem.product.price / 100
+        } €</p>
+      </div>
+    </div>
+
+    <div class="col-4 col-lg-2">
+      <div class="button mb-2">
+        <button type="button" class="btn btn-secondary remove-btn">Supprimer</button>
+      </div>
+    </div>
+  </div>
+  `;
+});

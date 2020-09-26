@@ -53,10 +53,6 @@ ul li:first-child {
   margin: auto;
 }
 
-#product-details {
-  padding: 0 1.25rem;
-}
-
 input {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;

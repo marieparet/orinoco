@@ -62,4 +62,5 @@ function alertMessage() {
 //au clic sur le bouton "Ajouter au panier", message d'alerte "Produit ajouté au panier"
 button.addEventListener("click", function () {
   alertMessage();
+  cart.addToCart(//product, quantité input, couleur input)
 });
