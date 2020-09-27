@@ -33,9 +33,9 @@ function renderCartContent() {
 
       <div class="col-4 col-lg-2">
         <label for="input-quantity-${index}" class="mb-2">Quantité</label>
-        <input id="input-quantity-${index}" class="cart-item-input-quantity" type="number" min="1" value="${
+        <input id="input-quantity-${index}" class="cart-item-input-quantity text-dark pl-2 ml-1 w-50" type="number" min="1" value="${
         cartItem.quantity
-      }" class="input-quantity text-dark pl-2 ml-1 w-50" />
+      }" />
       </div>
 
       <div class="col-4 col-lg-2">
