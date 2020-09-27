@@ -22,7 +22,7 @@ function processTeddyInfo(product) {
 
 //création des options couleurs pour le formulaire de personnalisation
 function setColorsOptions(product) {
-  let select = document.getElementById("FormControlSelect");
+  let select = document.getElementById("select-color");
 
   product.colors.forEach((color) => {
     let option = document.createElement("option");
@@ -38,14 +38,12 @@ fetch(BASE_URL + `api/teddies/${getProductIdFromUrl()}`)
   .then((product) => {
     processTeddyInfo(product);
     setColorsOptions(product);
+    activateAddToCartButtonListener(product);
   })
   .catch((error) => console.error(error));
 
-//bouton "Ajouter au panier"
-let button = document.querySelector("#add-to-cart");
-
 //message d'alerte "Produit ajouté au panier"
-function alertMessage() {
+function productAddedToCartMessage() {
   document.querySelector(".card-body").insertAdjacentHTML(
     "beforeend",
     `
@@ -60,7 +58,21 @@ function alertMessage() {
 }
 
 //au clic sur le bouton "Ajouter au panier", message d'alerte "Produit ajouté au panier"
-button.addEventListener("click", function () {
-  alertMessage();
-  cart.addToCart(//product, quantité input, couleur input)
-});
+function activateAddToCartButtonListener(product) {
+  let button = document.querySelector("#add-to-cart");
+
+  button.addEventListener("click", function () {
+    productAddedToCartMessage();
+    cart.addToCart(product, quantityInputValue(), colorSelectValue());
+  });
+}
+
+//récupère l'input quantité de l'utilisateur
+function quantityInputValue() {
+  return parseInt(document.querySelector("#input-quantity").value);
+}
+
+//récupère l'input couleur de l'utilisateur
+function colorSelectValue() {
+  return document.querySelector("#select-color").value;
+}
