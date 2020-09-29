@@ -3,12 +3,12 @@ const BASE_URL = "http://localhost:3000/";
 //récupération de l'id du produit depuis la query string
 function getProductIdFromUrl() {
   const queryString = window.location.search;
-  const productId = queryString.substr(4); ///on supprime les 4 1ers caractères de la string ("?=id")
+  const productId = queryString.substr(4); ///on supprime les 4 1ers caractères de la string ("?=id") pour n'avoir que l'id
   return productId;
 }
 
-//insertion des info du teddy passé en paramètre
-function processTeddyInfo(product) {
+//insertion des infos du teddy passé en paramètre
+function processTeddyInfos(product) {
   let productImage = document.querySelector(".product-img");
   let productName = document.querySelector(".card-title");
   let productPrice = document.querySelector(".card-price");
@@ -36,43 +36,28 @@ function setColorsOptions(product) {
 fetch(BASE_URL + `api/teddies/${getProductIdFromUrl()}`)
   .then((response) => response.json())
   .then((product) => {
-    processTeddyInfo(product);
+    processTeddyInfos(product);
     setColorsOptions(product);
     activateAddToCartButtonListener(product);
   })
   .catch((error) => console.error(error));
-
-//message d'alerte "Produit ajouté au panier"
-function productAddedToCartMessage() {
-  document.querySelector(".card-body").insertAdjacentHTML(
-    "beforeend",
-    `
-    <div id="added-to-cart" class="alert mt-3 mb-0 alert-success alert-dismissible fade show" role="alert">
-      <p class="alert-heading">Produit ajouté au panier</p>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-    </div>
-    `
-  );
-}
 
 //au clic sur le bouton "Ajouter au panier", message d'alerte "Produit ajouté au panier"
 function activateAddToCartButtonListener(product) {
   let button = document.querySelector("#add-to-cart");
 
   button.addEventListener("click", function () {
-    productAddedToCartMessage();
+    addedToCartMessageTemplate(); //fonction déclarée dans le dossier "template", fichier "addedToCartMessageTemplate"
     cart.addToCart(product, quantityInputValue(), colorSelectValue());
   });
 }
 
-//récupère l'input quantité de l'utilisateur
+//récupération de l'input quantité de l'utilisateur
 function quantityInputValue() {
   return parseInt(document.querySelector("#input-quantity").value);
 }
 
-//récupère l'input couleur de l'utilisateur
+//récupération de l'input couleur de l'utilisateur
 function colorSelectValue() {
   return document.querySelector("#select-color").value;
 }

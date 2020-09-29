@@ -76,7 +76,10 @@
       <div class="cart-items-container">
       </div>
 
-      <div id="pad-bottom" class="row justify-content-center mt-5 pt-3">
+      <div class="cart-total-price">
+      </div>
+
+      <div id="pad-bottom" class="form-container row justify-content-center mt-3 pt-3">
         <div class="col-12 text-center">
           <p>Veuillez remplir le formulaire ci-dessous pour valider votre commande</p>
         </div>
@@ -84,41 +87,42 @@
         <div class="col-12 col-lg-6">
           <div class="card">
             <div class="card-body">
-              <form>
+              <form id="orderForm">
+
                 <div class="form-group">
-                  <label for="name">Nom et Prénom</label>
-                  <input type="text" id="name" name="name" class="form-control" placeholder="Entrez vos nom et prénom">
-                  <small>mettre message valide ou non valide</small>
+                  <label for="lastName">Nom</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Entrez votre nom">
+                  <small class="lastName-error"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="firstName">Prénom</label>
+                  <input type="text" class="form-control" id="firstName" name="firstName"
+                    placeholder="Entrez votre prénom">
+                  <small class="firstName-error"></small>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
                     placeholder="Entrez votre adresse mail">
-                  <small>mettre message valide ou non valide</small>
+                  <small class="email-error"></small>
                 </div>
 
                 <div class="form-group">
                   <label for="address">Adresse</label>
-                  <input type="text" id="address" address="address" class="form-control"
-                    placeholder="Entrez votre adresse">
-                  <small>mettre message valide ou non valide</small>
-                </div>
-
-                <div class="form-group">
-                  <label for="postal-code">Code Postal</label>
-                  <input type="text" id="postal-code" name="postal-code" class="form-control"
-                    placeholder="Entrez votre ville">
-                  <small>mettre message valide ou non valide</small>
+                  <input type="text" class="form-control" id="address" name="address"
+                    placeholder=" Entrez votre adresse">
+                  <small class="address-error"></small>
                 </div>
 
                 <div class="form-group">
                   <label for="city">Ville</label>
-                  <input type="text" id="city" name="city" class="form-control" placeholder="Entrez votre ville">
-                  <small>mettre message valide ou non valide</small>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Entrez votre ville">
+                  <small class="city-error"></small>
                 </div>
 
-                <button type="submit" class="btn btn-secondary btn-block">Submit</button>
+                <button type="submit" class="btn btn-secondary btn-block">Valider</button>
               </form>
             </div>
           </div>
@@ -137,6 +141,8 @@
       </footer>
 
       <script src="js/models/Cart.js"></script>
+      <script src="js/template/cartItemTemplate.js"></script>
+      <script src="js/template/totalPriceTemplate.js"></script>
       <script src="js/panier.js"></script>
 
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
