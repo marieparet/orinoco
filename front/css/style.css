@@ -66,6 +66,13 @@ input:focus,
   box-shadow: 0 0 0 0.2rem rgba(235, 202, 225, 0.5);
 }
 
+input:-webkit-autofill {
+  border: 1px solid rgba(235, 202, 225, 0.3);
+  -webkit-text-fill-color: #212529;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(235, 202, 225, 0.3) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 #close-btn-mobile {
   top: 0;
   right: 0;

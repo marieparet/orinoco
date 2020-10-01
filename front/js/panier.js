@@ -138,6 +138,7 @@ function orderFormSent() {
 
     .then(function (response) {
       let orderInfos = {
+        userName: requestContent.contact.firstName,
         totalPrice: cart.totalPrice(),
         orderId: response.orderId,
       };
