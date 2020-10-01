@@ -4,7 +4,7 @@ function totalPriceTemplate() {
     <div class="col-12">
       <div class="card border-0">
         <div class="card-body">
-          <p class="card-text font-weight-bold">Prix total = ${cart.totalPrice()} €</p>
+          <p class="card-text font-weight-bold h5">Prix total = ${cart.totalPrice()} €</p>
         </div>
       </div>
     </div>

@@ -58,6 +58,14 @@ input {
   border-radius: 0.25rem;
 }
 
+input:focus,
+.form-control:focus {
+  border: 1px solid rgb(235, 202, 225);
+  border-radius: 6px;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(235, 202, 225, 0.5);
+}
+
 #close-btn-mobile {
   top: 0;
   right: 0;

@@ -5,11 +5,11 @@ function cartItemTemplate(cartItem, index) {
   <div class="cart-item row justify-content-center text-center align-items-center border rounded mx-2 mb-3 px-2 py-3 position-relative">
     <div class="col-6 col-lg-3">
       <div class="card border-0 m-1">
-        <span>
-          <img class="card-img-top" src="${
-            cartItem.product.imageUrl
-          }" alt="Photo d'ours en peluche">
-        </span>
+          <a href="produit.html?id=${cartItem.product._id}">
+            <img class="card-img-top" src="${
+              cartItem.product.imageUrl
+            }" alt="Photo d'ours en peluche">
+          </a>
         <div class="card-body p-0">
         </div>
       </div>
@@ -18,8 +18,10 @@ function cartItemTemplate(cartItem, index) {
     <div class="col-6 col-lg-3 mt-2">
       <div class="card border-0 m-1">
         <div class="card-body p-0">
-          <p class="card-text mb-0">${cartItem.product.name}</p>
-          <p class="card-text">(${cartItem.color})</p>
+          <a class="text-dark" href="produit.html?id=${cartItem.product._id}">
+            <p class="card-text mb-0">${cartItem.product.name}</p>
+            <p class="card-text">(${cartItem.color})</p>
+          </a>
         </div>
       </div>
     </div>
