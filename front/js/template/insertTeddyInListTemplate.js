@@ -3,7 +3,7 @@ function insertTeddyInListTemplate(product) {
   productDiv.innerHTML += `
   <div class="col-12 col-lg-4">
     <div class="card shadow-sm">
-      <span id="image-wrapper">
+      <span class="image-wrapper">
       <a href="produit.html?id=${product._id}" class="text-dark">
       <img class="card-img-top" src="${product.imageUrl}"
       alt="Photo d'ours en peluche">
