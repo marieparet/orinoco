@@ -10,8 +10,16 @@ npm install
 node server.js
 ```
 ### Front :
+
+- On Mac or Linux :
 ```
-open index.html file
+sudo php -S localhost:3001 
+open on any web browser : localhost:3001/index.html
+```
+
+- On Windows :
+```
+
 ```
 
 ## What is this project ?
