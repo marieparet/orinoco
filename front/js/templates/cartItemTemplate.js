@@ -3,7 +3,7 @@ export function cartItemTemplate(cartItem, index) {
     "beforeend",
     `
   <div class="cart-item row justify-content-center text-center align-items-center border rounded mx-2 mb-3 px-2 py-3 position-relative">
-    <div class="col-6 col-lg-3">
+    <div class="col-6 col-md-3">
       <div class="card border-0 m-1">
           <a href="produit.html?id=${cartItem.product._id}">
             <img class="card-img-top" src="${
@@ -15,7 +15,7 @@ export function cartItemTemplate(cartItem, index) {
       </div>
     </div>
 
-    <div class="col-6 col-lg-3 mt-2">
+    <div class="col-6 col-md-3 mt-2">
       <div class="card border-0 m-1">
         <div class="card-body p-0">
           <a class="text-dark" href="produit.html?id=${cartItem.product._id}">
@@ -26,7 +26,7 @@ export function cartItemTemplate(cartItem, index) {
       </div>
     </div>
 
-    <div class="col-6 col-lg-2 mt-2 d-flex justify-content-center">
+    <div class="col-6 col-md-2 mt-2 d-flex justify-content-center">
       <div class="cart-btn-quantity d-flex align-items-center justify-content-between w-75 p-2">
         <button class="button-quantity-${index} bg-white border-0"><i class="fas fa-minus fa-xs text-secondary"></i></button>
         <span id="quantity-${index}">${cartItem.quantity}</span>
@@ -34,7 +34,7 @@ export function cartItemTemplate(cartItem, index) {
       </div>
     </div>
 
-    <div class="col-6 col-lg-2 mt-2">
+    <div class="col-6 col-md-2 mt-2">
       <div class="price">
         <p class="mb-2 product-price">Prix : ${
           (cartItem.product.price / 100) * cartItem.quantity

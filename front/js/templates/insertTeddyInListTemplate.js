@@ -1,7 +1,7 @@
 export function insertTeddyInListTemplate(product) {
   let productDiv = document.querySelector("#products");
   productDiv.innerHTML += `
-  <div class="col-12 col-lg-4">
+  <div class="col-12 col-md-4">
     <div class="card shadow-sm">
       <span class="image-wrapper">
       <a href="produit.html?id=${product._id}" class="text-dark">
