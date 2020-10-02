@@ -1,3 +1,5 @@
+import { addedToCartMessageTemplate } from "./templates/addedToCartMessageTemplate.js";
+
 const BASE_URL = "http://localhost:3000/";
 
 //récupération de l'id du produit depuis la query string
@@ -47,7 +49,7 @@ function activateAddToCartButtonListener(product) {
   let button = document.querySelector("#add-to-cart");
 
   button.addEventListener("click", function () {
-    addedToCartMessageTemplate(); //fonction déclarée dans le dossier "template", fichier "addedToCartMessageTemplate"
+    addedToCartMessageTemplate(); //fonction déclarée dans le dossier "templates", fichier "addedToCartMessageTemplate"
     cart.addToCart(product, quantityInputValue(), colorSelectValue());
   });
 }

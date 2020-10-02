@@ -1,4 +1,4 @@
-function cartItemTemplate(cartItem, index) {
+export function cartItemTemplate(cartItem, index) {
   document.querySelector(".cart-items-container").insertAdjacentHTML(
     "beforeend",
     `

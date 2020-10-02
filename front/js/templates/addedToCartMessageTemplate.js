@@ -1,5 +1,5 @@
 //message d'alerte "Produit ajouté au panier"
-function addedToCartMessageTemplate() {
+export function addedToCartMessageTemplate() {
   document.querySelector(".card-body").insertAdjacentHTML(
     "beforeend",
     `

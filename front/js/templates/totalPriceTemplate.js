@@ -1,4 +1,4 @@
-function totalPriceTemplate() {
+export function totalPriceTemplate() {
   document.querySelector(".cart-total-price").innerHTML = `
   <div class="row text-center">
     <div class="col-12">

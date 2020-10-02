@@ -36,6 +36,12 @@ ul li:first-child {
 
 .card {
   margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.card.shadow-sm:hover {
+  box-shadow: 0 0.125rem 0.95rem rgba(0, 0, 0, 0.075) !important;
+  transform: scale(1.01);
 }
 
 .image-wrapper {

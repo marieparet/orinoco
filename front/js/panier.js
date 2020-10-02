@@ -1,3 +1,6 @@
+import { cartItemTemplate } from "./templates/cartItemTemplate.js";
+import { totalPriceTemplate } from "./templates/totalPriceTemplate.js";
+
 let cartItemContainer = document.querySelector(".cart-items-container");
 
 //contenu du panier
@@ -5,7 +8,7 @@ function renderCartContent() {
   cartItemContainer.innerHTML = "";
 
   cart.cartContent.forEach((cartItem, index) => {
-    cartItemTemplate(cartItem, index); //fonction déclarée dans le dossier "template", fichier "cartItemTemplate"
+    cartItemTemplate(cartItem, index); //fonction déclarée dans le dossier "templates", fichier "cartItemTemplate"
 
     removeButton(index);
 
@@ -51,7 +54,7 @@ function displayTotalPrice() {
   if (cart.isCartEmpty()) {
     return (totalPriceBloc.innerHTML = "");
   } else {
-    totalPriceTemplate(); //fonction déclarée dans le dossier "template", fichier "totalPriceTemplate"
+    totalPriceTemplate(); //fonction déclarée dans le dossier "templates", fichier "totalPriceTemplate"
   }
 }
 
@@ -95,6 +98,11 @@ orderForm.addEventListener("submit", function (event) {
 
       if (!fieldElement.value) {
         fieldErrorElement.innerHTML = "Veuillez renseigner ce champ";
+        fieldErrorElement.classList.add("text-danger");
+        areAllFieldsValid = false;
+      } else if (fieldElement.value.length < 2) {
+        fieldErrorElement.innerHTML =
+          "Ce champ doit contenir au moins 2 lettres";
         fieldErrorElement.classList.add("text-danger");
         areAllFieldsValid = false;
       } else {

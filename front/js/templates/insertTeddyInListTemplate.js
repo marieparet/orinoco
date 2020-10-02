@@ -1,4 +1,4 @@
-function insertTeddyInListTemplate(product) {
+export function insertTeddyInListTemplate(product) {
   let productDiv = document.querySelector("#products");
   productDiv.innerHTML += `
   <div class="col-12 col-lg-4">

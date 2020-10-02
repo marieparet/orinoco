@@ -1,3 +1,5 @@
+import { insertTeddyInListTemplate } from "./templates/insertTeddyInListTemplate.js";
+
 const BASE_URL = "http://localhost:3000/";
 
 //requête http vers l'api pour récupérer les produits
@@ -11,7 +13,7 @@ function fetchTeddies() {
 //affichage de chaque produit sous forme de liste
 function processEachTeddy(products) {
   products.forEach((product) => {
-    insertTeddyInListTemplate(product); //fonction déclarée dans le dossier "template", fichier "insertTeddyInListTemplate"
+    insertTeddyInListTemplate(product); //fonction déclarée dans le dossier "templates", fichier "insertTeddyInListTemplate"
   });
 }
 
