@@ -65,7 +65,8 @@ input {
 }
 
 input:focus,
-.form-control:focus {
+.form-control:focus,
+button:focus {
   border: 1px solid rgb(235, 202, 225);
   border-radius: 6px;
   outline: 0;
@@ -83,4 +84,9 @@ input:-webkit-autofill {
   top: 0;
   right: 0;
   margin-right: 7px;
+}
+
+.cart-btn-quantity {
+  border: 1px solid #dee2e6;
+  border-radius: 40px;
 }

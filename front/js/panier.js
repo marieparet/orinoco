@@ -12,7 +12,7 @@ function renderCartContent() {
 
     removeButton(index);
 
-    quantityInputChanged(index);
+    setQuantityInputListeners(index);
   });
 
   displayTotalPrice();
@@ -37,14 +37,21 @@ function removeButton(index) {
   });
 }
 
-//modifier quantité d'un item dans le panier
-function quantityInputChanged(index) {
-  let inputQuantityIndex = document.querySelector(`#input-quantity-${index}`);
-
-  inputQuantityIndex.addEventListener("change", function (event) {
-    cart.updateCartItemQuantity(index, parseInt(event.target.value));
-    renderCartContent();
+function setQuantityInputListeners(index) {
+  const buttons = document.querySelectorAll(`.button-quantity-${index}`);
+  buttons.forEach(function (button) {
+    button.addEventListener("click", () => quantityInputChanged(index, button));
   });
+}
+
+//modifier quantité d'un item dans le panier
+function quantityInputChanged(index, button) {
+  const previousQuantity = cart.cartContent[index].quantity;
+  const desiredUpdate = button.classList.contains("up") ? 1 : -1;
+  const newValue = previousQuantity + desiredUpdate;
+
+  cart.updateCartItemQuantity(index, newValue);
+  renderCartContent();
 }
 
 //afficher le prix total du panier s'il n'est pas vide
@@ -114,14 +121,14 @@ orderForm.addEventListener("submit", function (event) {
   }
 
   if (validField() && validEmail(orderForm.email)) {
-    orderFormSent();
+    sendOrderForm();
   } else {
     console.log("erreur");
   }
 });
 
 //fetch envoi formulaire
-function orderFormSent() {
+function sendOrderForm() {
   let requestContent = {
     contact: {
       lastName: document.querySelector("#lastName").value,

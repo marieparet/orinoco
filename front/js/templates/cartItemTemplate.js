@@ -26,11 +26,12 @@ export function cartItemTemplate(cartItem, index) {
       </div>
     </div>
 
-    <div class="col-6 col-lg-2 mt-2">
-      <label for="input-quantity-${index}" class="mb-2">Quantité</label>
-      <input id="input-quantity-${index}" class="cart-item-input-quantity text-dark pl-2 ml-1 w-50" type="number" min="1" value="${
-      cartItem.quantity
-    }" />
+    <div class="col-6 col-lg-2 mt-2 d-flex justify-content-center">
+      <div class="cart-btn-quantity d-flex align-items-center justify-content-between w-75 p-2">
+        <button class="button-quantity-${index} bg-white border-0"><i class="fas fa-minus fa-xs text-secondary"></i></button>
+        <span id="quantity-${index}">${cartItem.quantity}</span>
+        <button class="button-quantity-${index} up bg-white border-0"><i class="fas fa-plus fa-xs text-secondary"></i></button>
+      </div>
     </div>
 
     <div class="col-6 col-lg-2 mt-2">
