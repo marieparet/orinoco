@@ -1,18 +1,19 @@
+import { apiClient } from "./models/ApiClient.js";
+import { Product } from "./models/Product.js";
 import { insertTeddyInListTemplate } from "./templates/insertTeddyInListTemplate.js";
-
-const BASE_URL = "http://localhost:3000/";
 
 //requête http vers l'api pour récupérer les produits
 function fetchTeddies() {
-  fetch(BASE_URL + "api/teddies/")
-    .then((response) => response.json())
+  apiClient
+    .getTeddies()
     .then((products) => processEachTeddy(products))
     .catch((error) => console.error(error));
 }
 
 //affichage de chaque produit sous forme de liste
 function processEachTeddy(products) {
-  products.forEach((product) => {
+  products.forEach((productHash) => {
+    const product = new Product(productHash);
     insertTeddyInListTemplate(product); //fonction déclarée dans le dossier "templates", fichier "insertTeddyInListTemplate"
   });
 }

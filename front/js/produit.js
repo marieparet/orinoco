@@ -1,13 +1,7 @@
+import { Product } from "./models/Product.js";
+import { apiClient } from "./models/ApiClient.js";
+import { cart } from "./models/Cart.js";
 import { addedToCartMessageTemplate } from "./templates/addedToCartMessageTemplate.js";
-
-const BASE_URL = "http://localhost:3000/";
-
-//récupération de l'id du produit depuis la query string
-function getProductIdFromUrl() {
-  const queryString = window.location.search;
-  const productId = queryString.substr(4); ///on supprime les 4 1ers caractères de la string ("?=id") pour n'avoir que l'id
-  return productId;
-}
 
 //insertion des infos du teddy passé en paramètre
 function processTeddyInfos(product) {
@@ -16,17 +10,17 @@ function processTeddyInfos(product) {
   let productPrice = document.querySelector(".card-price");
   let productDescription = document.querySelector(".card-description");
 
-  productImage.setAttribute("src", product.imageUrl);
-  productName.innerHTML = product.name;
-  productPrice.innerHTML = `Prix : ${product.price / 100} €`;
-  productDescription.innerHTML = product.description;
+  productImage.setAttribute("src", product.image());
+  productName.innerHTML = product.name();
+  productPrice.innerHTML = `Prix : ${product.price()} €`;
+  productDescription.innerHTML = product.description();
 }
 
 //création des options couleurs pour le formulaire de personnalisation
 function setColorsOptions(product) {
   let select = document.getElementById("select-color");
 
-  product.colors.forEach((color) => {
+  product.colors().forEach((color) => {
     let option = document.createElement("option");
     option.value = color;
     option.innerText = color;
@@ -35,9 +29,10 @@ function setColorsOptions(product) {
 }
 
 //requête http vers l'élément correspondant à l'id donné
-fetch(BASE_URL + `api/teddies/${getProductIdFromUrl()}`)
-  .then((response) => response.json())
-  .then((product) => {
+apiClient
+  .getTeddy()
+  .then((productHash) => {
+    const product = new Product(productHash);
     processTeddyInfos(product);
     setColorsOptions(product);
     activateAddToCartButtonListener(product);

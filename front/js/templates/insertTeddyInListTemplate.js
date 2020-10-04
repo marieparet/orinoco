@@ -4,15 +4,15 @@ export function insertTeddyInListTemplate(product) {
   <div class="col-12 col-md-4">
     <div class="card shadow-sm">
       <span class="image-wrapper">
-      <a href="produit.html?id=${product._id}" class="text-dark">
-      <img class="card-img-top" src="${product.imageUrl}"
+      <a href="produit.html?id=${product.id()}" class="text-dark">
+      <img class="card-img-top" src="${product.image()}"
       alt="Photo d'ours en peluche">
       </span>
       
       <div class="card-body">
-        <h2 class="card-title">${product.name}</h2>
-        <p class="card-text">${product.price / 100} €</p>
-        <p class="card-text">(${product.colors.length} coloris)</p>
+        <h2 class="card-title">${product.name()}</h2>
+        <p class="card-text">${product.price()} €</p>
+        <p class="card-text">(${product.numberOfColors()} coloris)</p>
       </div>
     </div>
     </a>

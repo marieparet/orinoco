@@ -1,4 +1,4 @@
-class Product {
+export class Product {
   constructor(productHash) {
     this.infos = productHash;
   }
@@ -29,5 +29,9 @@ class Product {
 
   numberOfColors() {
     return this.colors().length;
+  }
+
+  toJSON() {
+    return this.infos;
   }
 }

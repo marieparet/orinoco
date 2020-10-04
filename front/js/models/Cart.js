@@ -1,3 +1,5 @@
+import { Product } from "./Product.js";
+
 class Cart {
   constructor() {
     this.retrieveCartContent();
@@ -48,7 +50,7 @@ class Cart {
   totalPrice() {
     return this.cartContent.reduce(
       (previousValue, cartItem) =>
-        previousValue + (cartItem.product.price * cartItem.quantity) / 100,
+        previousValue + cartItem.product.price() * cartItem.quantity,
       0
     );
   }
@@ -62,7 +64,7 @@ class Cart {
   productIds() {
     let products = [];
     for (let cartItem of this.cartContent) {
-      products.push(cartItem.product._id);
+      products.push(cartItem.product.id());
     }
     return products;
   }
@@ -71,6 +73,9 @@ class Cart {
   retrieveCartContent() {
     const jsonCart = localStorage.getItem("cart");
     this.cartContent = JSON.parse(jsonCart) || [];
+    this.cartContent.forEach((cartItem) => {
+      cartItem.product = new Product(cartItem.product);
+    });
   }
 
   //sauvegarde du contenu du panier dans le localStorage
@@ -80,4 +85,4 @@ class Cart {
 }
 
 //initialisation d'un nouvel objet panier
-const cart = new Cart();
+export const cart = new Cart();

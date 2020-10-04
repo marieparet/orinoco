@@ -1,3 +1,5 @@
+import { cart } from "../models/Cart.js";
+
 export function totalPriceTemplate() {
   document.querySelector(".cart-total-price").innerHTML = `
   <div class="row text-center">

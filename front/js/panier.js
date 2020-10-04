@@ -1,3 +1,5 @@
+import { apiClient } from "./models/ApiClient.js";
+import { cart } from "./models/Cart.js";
 import { cartItemTemplate } from "./templates/cartItemTemplate.js";
 import { totalPriceTemplate } from "./templates/totalPriceTemplate.js";
 
@@ -129,7 +131,7 @@ orderForm.addEventListener("submit", function (event) {
 
 //fetch envoi formulaire
 function sendOrderForm() {
-  let requestContent = {
+  let orderData = {
     contact: {
       lastName: document.querySelector("#lastName").value,
       firstName: document.querySelector("#firstName").value,
@@ -140,20 +142,12 @@ function sendOrderForm() {
     products: cart.productIds(),
   };
 
-  const options = {
-    method: "POST",
-    body: JSON.stringify(requestContent),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  fetch("http://localhost:3000/api/teddies/order", options)
-    .then((response) => response.json())
+  apiClient
+    .createOrder(orderData)
 
     .then(function (response) {
       let orderInfos = {
-        userName: requestContent.contact.firstName,
+        userName: orderData.contact.firstName,
         totalPrice: cart.totalPrice(),
         orderId: response.orderId,
       };
