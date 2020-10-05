@@ -1,3 +1,4 @@
+//contenu de chaque produit affiché dans la vue sous forme de liste
 export function insertTeddyInListTemplate(product) {
   let productDiv = document.querySelector("#products");
   productDiv.innerHTML += `

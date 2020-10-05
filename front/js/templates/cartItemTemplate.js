@@ -1,3 +1,4 @@
+//contenu de chaque ligne de produit contenu dans le panier
 export function cartItemTemplate(cartItem, index) {
   document.querySelector(".cart-items-container").insertAdjacentHTML(
     "beforeend",

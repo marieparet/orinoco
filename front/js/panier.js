@@ -5,7 +5,7 @@ import { totalPriceTemplate } from "./templates/totalPriceTemplate.js";
 
 let cartItemContainer = document.querySelector(".cart-items-container");
 
-//contenu du panier
+//affichage du contenu du panier
 function renderCartContent() {
   cartItemContainer.innerHTML = "";
 
@@ -19,6 +19,7 @@ function renderCartContent() {
 
   displayTotalPrice();
 
+  //si le panier est vide, pas de formulaire, et affichage de la phrase "Votre panier est vide"
   if (cart.isCartEmpty()) {
     document.querySelector("#empty-cart").classList.remove("d-none");
     document.querySelector(".form-container").classList.add("d-none");
@@ -39,6 +40,7 @@ function removeButton(index) {
   });
 }
 
+//écoute de la modification de la quantité d'un item dans le panier
 function setQuantityInputListeners(index) {
   const buttons = document.querySelectorAll(`.button-quantity-${index}`);
   buttons.forEach(function (button) {
@@ -46,7 +48,7 @@ function setQuantityInputListeners(index) {
   });
 }
 
-//modifier quantité d'un item dans le panier
+//modification de la quantité d'un item dans le panier
 function quantityInputChanged(index, button) {
   const previousQuantity = cart.cartContent[index].quantity;
   const desiredUpdate = button.classList.contains("up") ? 1 : -1;
@@ -56,7 +58,7 @@ function quantityInputChanged(index, button) {
   renderCartContent();
 }
 
-//afficher le prix total du panier s'il n'est pas vide
+//affichage du prix total du panier s'il n'est pas vide
 function displayTotalPrice() {
   let totalPriceBloc = document.querySelector(".cart-total-price");
 
@@ -67,10 +69,10 @@ function displayTotalPrice() {
   }
 }
 
-//Formulaire de validation de commande
+//formulaire de validation de commande
 let orderForm = document.querySelector("#orderForm");
 
-//écouter la modification de l'email
+//écoute de la modification de l'email
 orderForm.email.addEventListener("change", function () {
   validEmail(this);
 });
@@ -79,7 +81,7 @@ function validEmail(inputEmail) {
   //création de la reg exp pour validation email
   let emailRegexp = /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/;
 
-  //on teste la reg exp
+  //test de la reg exp
   let smallDiv = inputEmail.nextElementSibling;
   if (emailRegexp.test(inputEmail.value)) {
     smallDiv.innerHTML = "Adresse valide";
@@ -94,17 +96,19 @@ function validEmail(inputEmail) {
   }
 }
 
-//écouter la soumission du formulaire
+//écoute de la soumission du formulaire
 orderForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   function validField() {
+    //vérification de la présence de tous les champs requis
     const fieldsToCheck = ["lastName", "firstName", "email", "address", "city"];
     let areAllFieldsValid = true;
     for (let field of fieldsToCheck) {
       let fieldElement = document.querySelector(`#${field}`);
       let fieldErrorElement = document.querySelector(`.${field}-error`);
 
+      //vérification du remplissage des champs requis
       if (!fieldElement.value) {
         fieldErrorElement.innerHTML = "Veuillez renseigner ce champ";
         fieldErrorElement.classList.add("text-danger");
@@ -122,14 +126,13 @@ orderForm.addEventListener("submit", function (event) {
     return areAllFieldsValid;
   }
 
+  //si tous les champs sont valides, envoi des données du formulaire au serveur
   if (validField() && validEmail(orderForm.email)) {
     sendOrderForm();
-  } else {
-    console.log("erreur");
   }
 });
 
-//fetch envoi formulaire
+//requête post pour l'envoi des données du formulaire au serveur
 function sendOrderForm() {
   let orderData = {
     contact: {
@@ -151,7 +154,9 @@ function sendOrderForm() {
         totalPrice: cart.totalPrice(),
         orderId: response.orderId,
       };
+      //stockage des données de la commande dans le localStorage
       localStorage.setItem("infosOfConfirmedOrder", JSON.stringify(orderInfos));
+      //vidage du panier lorsqu'une commande est validée
       cart.clearCart();
       window.location.replace("./confirmation.html");
     });

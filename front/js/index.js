@@ -2,7 +2,7 @@ import { apiClient } from "./models/ApiClient.js";
 import { Product } from "./models/Product.js";
 import { insertTeddyInListTemplate } from "./templates/insertTeddyInListTemplate.js";
 
-//requête http vers l'api pour récupérer les produits
+//requête http vers l'api pour récupérer les infos de tous les produits
 function fetchTeddies() {
   apiClient
     .getTeddies()

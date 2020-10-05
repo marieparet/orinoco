@@ -2,6 +2,8 @@
 
 ## Getting started
 
+Clone this repository
+
 ### Server :
 
 ```
