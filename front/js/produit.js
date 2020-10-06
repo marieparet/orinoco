@@ -39,7 +39,7 @@ apiClient
   })
   .catch((error) => console.error(error));
 
-//au clic sur le bouton "Ajouter au panier", message d'alerte "Produit ajouté au panier"
+//au clic sur le bouton "Ajouter au panier", message d'alerte et produit ajouté au panier
 function activateAddToCartButtonListener(product) {
   let button = document.querySelector("#add-to-cart");
 
