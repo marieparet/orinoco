@@ -26,7 +26,7 @@ class Cart {
     this.saveCart();
   }
 
-  //mise à jour de l'input quantité selon l'index donné du produit
+  //mise à jour de la quantité d'un élément du panier selon l'index sélectionné
   updateCartItemQuantity(index, value) {
     if (value < 1) return;
 
