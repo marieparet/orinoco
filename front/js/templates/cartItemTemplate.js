@@ -1,3 +1,5 @@
+import { cart } from "../models/Cart.js";
+
 //contenu de chaque ligne de produit contenu dans le panier
 export function cartItemTemplate(cartItem, index) {
   document.querySelector(".cart-items-container").insertAdjacentHTML(
@@ -35,9 +37,9 @@ export function cartItemTemplate(cartItem, index) {
 
     <div class="col-6 col-md-2 mt-2">
       <div class="price">
-        <p class="mb-2 product-price">Prix : ${
-          cartItem.product.price() * cartItem.quantity
-        } €</p>
+        <p class="mb-2 product-price">Prix : ${cart.cartItemTotalPrice(
+          cartItem
+        )} €</p>
       </div>
     </div>
 

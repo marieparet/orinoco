@@ -46,11 +46,16 @@ class Cart {
     this.saveCart();
   }
 
+  //calcul du prix total d'un élément du panier
+  cartItemTotalPrice(cartItem) {
+    return cartItem.product.price() * cartItem.quantity;
+  }
+
   //calcul du prix total du panier
   totalPrice() {
     return this.cartContent.reduce(
       (previousValue, cartItem) =>
-        previousValue + cartItem.product.price() * cartItem.quantity,
+        previousValue + this.cartItemTotalPrice(cartItem),
       0
     );
   }
