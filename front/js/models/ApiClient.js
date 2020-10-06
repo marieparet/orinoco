@@ -36,8 +36,9 @@ class ApiClient {
   }
 
   createOrder(orderData) {
-    return this.post("api/teddies/order", orderData)
-    .catch(() => alert("Impossible de créer la commande"));
+    return this.post("api/teddies/order", orderData).catch(() =>
+      alert("Impossible de créer la commande")
+    );
   }
 }
 

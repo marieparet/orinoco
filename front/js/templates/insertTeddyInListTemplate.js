@@ -5,6 +5,7 @@ export function insertTeddyInListTemplate(product) {
   <div class="col-12 col-md-4">
     <div class="card shadow-sm">
       <span class="image-wrapper">
+      <!--ajout des query params (id du produit) dans l'url de chaque produit-->
       <a href="produit.html?id=${product.id()}" class="text-dark">
       <img class="card-img-top" src="${product.image()}"
       alt="Photo d'ours en peluche">
