@@ -22,6 +22,14 @@ npm start
 
 Then open on any web browser : http://localhost:3001/index.html
 
+### Tests :
+
+```
+cd front
+npm install
+npm test
+```
+
 ## What is this project ?
 
 This is the Project number 5 of the OpenClassrooms' Web Developer course, in which I had to create an e-commerce website in JavaScript.
