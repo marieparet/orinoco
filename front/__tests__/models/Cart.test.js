@@ -95,4 +95,33 @@ describe("Cart", () => {
       ]);
     });
   });
+
+  describe("cartItemTotalPrice", () => {
+    it("gives the total price of one cart item", () => {
+      const teddy1 = {
+        product: new Product({ _id: 8, price: 500 }),
+        quantity: 3,
+      };
+      cart.cartContent = [teddy1];
+
+      expect(cart.cartItemTotalPrice(teddy1)).toStrictEqual(15);
+    });
+  });
+
+  describe("totalPrice", () => {
+    it("gives the total price of the whole cart", () => {
+      const teddy1 = {
+        product: new Product({ _id: 8, price: 500 }),
+        quantity: 1,
+      };
+      const teddy2 = {
+        product: new Product({ _id: 3, price: 200 }),
+        quantity: 2,
+      };
+
+      cart.cartContent = [teddy1, teddy2];
+
+      expect(cart.totalPrice()).toStrictEqual(9);
+    });
+  });
 });
