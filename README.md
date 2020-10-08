@@ -42,6 +42,7 @@ This project allowed me to acquire basic JavaScript skills, such as handling :
 - objects
 - loops
 - promises
+- events
 - etc
 
 It also enabled me to gain some important browser API knowledge, such as :
@@ -50,4 +51,6 @@ It also enabled me to gain some important browser API knowledge, such as :
 - query params
 - localStorage
 
-I also learnt how to simplify and quicken CSS implementation by using Bootstrap.
+Besides, this project helped me grasp the concept of unit testing in order to cover the majority of the code base, by testing individual units and components of source code.
+
+Finally, I also learnt how to simplify and quicken CSS implementation by using Bootstrap.
