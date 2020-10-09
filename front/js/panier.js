@@ -1,4 +1,4 @@
-import { apiClient } from "./models/ApiClient.js";
+import { apiClient } from "./services/ApiClient.js";
 import { cart } from "./models/Cart.js";
 import { cartItemTemplate } from "./templates/cartItemTemplate.js";
 import { totalPriceTemplate } from "./templates/totalPriceTemplate.js";

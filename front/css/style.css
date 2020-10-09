@@ -49,7 +49,9 @@ ul li:first-child {
   overflow: hidden;
   width: 100%;
   height: 218px;
-  @media screen and (min-width: 767px) and (max-width: 990px) {
+}
+@media screen and (min-width: 767px) and (max-width: 769px) {
+  .image-wrapper {
     height: 139px;
   }
 }

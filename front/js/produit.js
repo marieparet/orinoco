@@ -1,10 +1,9 @@
-import { Product } from "./models/Product.js";
-import { apiClient } from "./models/ApiClient.js";
+import { teddyManager } from "./services/TeddyManager.js";
 import { cart } from "./models/Cart.js";
 import { addedToCartMessageTemplate } from "./templates/addedToCartMessageTemplate.js";
 
 //insertion des infos du teddy passé en paramètre
-function processTeddyInfos(product) {
+export function processTeddyInfos(product) {
   let productImage = document.querySelector(".product-img");
   let productName = document.querySelector(".card-title");
   let productPrice = document.querySelector(".card-price");
@@ -17,7 +16,7 @@ function processTeddyInfos(product) {
 }
 
 //création des options couleurs pour le formulaire de personnalisation
-function setColorsOptions(product) {
+export function setColorsOptions(product) {
   let select = document.getElementById("select-color");
 
   product.colors().forEach((color) => {
@@ -29,18 +28,14 @@ function setColorsOptions(product) {
 }
 
 //requête http vers l'élément correspondant à l'id donné
-apiClient
-  .getTeddy()
-  .then((productHash) => {
-    const product = new Product(productHash);
-    processTeddyInfos(product);
-    setColorsOptions(product);
-    activateAddToCartButtonListener(product);
-  })
-  .catch((error) => console.error(error));
+teddyManager.getTeddy().then((product) => {
+  processTeddyInfos(product);
+  setColorsOptions(product);
+  activateAddToCartButtonListener(product);
+});
 
 //au clic sur le bouton "Ajouter au panier", message d'alerte et produit ajouté au panier
-function activateAddToCartButtonListener(product) {
+export function activateAddToCartButtonListener(product) {
   let button = document.querySelector("#add-to-cart");
 
   button.addEventListener("click", function () {
@@ -50,11 +45,11 @@ function activateAddToCartButtonListener(product) {
 }
 
 //récupération de l'input quantité de l'utilisateur
-function quantityInputValue() {
+export function quantityInputValue() {
   return parseInt(document.querySelector("#input-quantity").value);
 }
 
 //récupération de l'input couleur de l'utilisateur
-function colorSelectValue() {
+export function colorSelectValue() {
   return document.querySelector("#select-color").value;
 }
