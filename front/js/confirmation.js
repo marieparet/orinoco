@@ -1,5 +1,5 @@
 //récupération des infos de la commande confirmée, sotckées dans le localStorage
-const jsonOrderInfos = localStorage.getItem("infosOfConfirmedOrder");
+const jsonOrderInfos = sessionStorage.getItem("orderInfos");
 const orderInfos = JSON.parse(jsonOrderInfos);
 
 document.querySelector("#confirmation-text").innerHTML = `

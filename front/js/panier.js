@@ -155,7 +155,7 @@ function sendOrderForm() {
         orderId: response.orderId,
       };
       //stockage des données de la commande dans le localStorage
-      localStorage.setItem("infosOfConfirmedOrder", JSON.stringify(orderInfos));
+      sessionStorage.setItem("orderInfos", JSON.stringify(orderInfos));
       //vidage du panier lorsqu'une commande est validée
       cart.clearCart();
       window.location.replace("./confirmation.html");
