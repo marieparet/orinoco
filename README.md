@@ -1,4 +1,4 @@
-# Create an e-commerce website
+# Creation of an e-commerce website
 
 ## Getting started
 
