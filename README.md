@@ -59,6 +59,6 @@ Finally, I also learnt how to simplify and quicken CSS implementation by using B
 
 Here is a quick video demonstration of the app :  
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Q8XKNeNG4tQ
-" target="_blank"><img src="http://img.youtube.com/vi/Q8XKNeNG4tQ/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=E0QamviDJy4
+" target="_blank"><img src="http://img.youtube.com/vi/E0QamviDJy4/0.jpg" 
 alt="Miniature de la présentation vidéo de l'application" width="240" height="180" border="10" /></a>
