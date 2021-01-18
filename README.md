@@ -54,3 +54,11 @@ It also enabled me to gain some important browser API knowledge, such as :
 Besides, this project helped me grasp the concept of unit testing in order to cover the majority of the code base, by testing individual units and components of source code.
 
 Finally, I also learnt how to simplify and quicken CSS implementation by using Bootstrap.
+
+## Video presentation
+
+Here is a quick video demonstration of the app :  
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Q8XKNeNG4tQ
+" target="_blank"><img src="http://img.youtube.com/vi/Q8XKNeNG4tQ/0.jpg" 
+alt="Miniature de la présentation vidéo de l'application" width="240" height="180" border="10" /></a>
